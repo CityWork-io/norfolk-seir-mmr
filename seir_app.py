@@ -1,8 +1,8 @@
- import streamlit as st  
- import numpy as np  
- import matplotlib.pyplot as plt  
+import streamlit as st  
+import numpy as np  
+import matplotlib.pyplot as plt  
 
- st.set_page_config(page_title="SEIR Model Simulator", layout="wide")  
+st.set_page_config(page_title="SEIR Model Simulator", layout="wide")  
 
  st.title("Stochastic SEIR Model Simulator")  
  st.write("This is a simple SEIR model simulation.")  
