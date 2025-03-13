@@ -11,7 +11,7 @@ st.write("This is a simple SEIR model simulation.")
 N = st.sidebar.number_input("Total number of students", value=500)  
 vaccination_rate = st.sidebar.slider("Vaccination rate (%)", 0, 100, 95) / 100  
 initial_infected = st.sidebar.number_input("Initial number of infected students", value=1)  
-beta = st.sidebar.slider("Transmission rate (β)", 12.0, 18.0, 15.0, step=0.1 
+beta = st.sidebar.slider("Transmission rate (β)", 12.0, 18.0, 15.0, step=0.1) 
 latent_period = st.sidebar.number_input("Latent period (days)", value=8)  
 infectious_period = st.sidebar.number_input("Infectious period (days)", value=5)  
 days_to_simulate = st.sidebar.number_input("Simulation days", value=30)  
