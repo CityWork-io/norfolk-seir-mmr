@@ -2,10 +2,10 @@ import streamlit as st
 import numpy as np  
 import matplotlib.pyplot as plt  
 
-st.set_page_config(page_title="SEIR Model Simulator", layout="wide")  
+st.set_page_config(page_title="Norfolk Schools & Surrounding Area SEIR Model Simulator", layout="wide")  
    
-st.title("Stochastic SEIR Model Simulator")  
-st.write("This is a simple SEIR model simulation.")  
+st.title("Norfolk Schools & Surrounding Area SEIR Model Simulator")  
+st.write("VDH - Measels Outbreak Simulation.")  
    
 # Sidebar controls for parameters  
 N = st.sidebar.number_input("Total number of students", value=500)  
@@ -18,7 +18,7 @@ days_to_simulate = st.sidebar.number_input("Simulation days", value=30)
    
 time_step = 0.1  
    
-# Compute initial conditions  
+#  initial conditionss
 vaccinated_students = int(N * vaccination_rate)  
 S0 = N - vaccinated_students - initial_infected  
 E0 = 0  
@@ -31,7 +31,7 @@ gamma = 1 / infectious_period
 total_steps = int(days_to_simulate / time_step)  
 time = np.linspace(0, days_to_simulate, total_steps + 1)  
    
-# Initialize arrays  
+# Initializing arrays  
 S = np.zeros(total_steps + 1)  
 E = np.zeros(total_steps + 1)  
 I = np.zeros(total_steps + 1)  
@@ -42,7 +42,7 @@ E[0] = E0
 I[0] = I0  
 R[0] = R0  
    
-# Run simulation using τ‐leap method for stochastic simulation  
+#  τ‐leap method for stochastic simulation - POI
 for t in range(total_steps):  
      lambda_SE = beta * S[t] * I[t] / N * time_step  
      lambda_EI = sigma * E[t] * time_step  
@@ -53,7 +53,7 @@ for t in range(total_steps):
      n_EI = np.random.poisson(lambda_EI)  
      n_IR = np.random.poisson(lambda_IR)  
    
-     # Make sure events aren't greater than available individuals  
+     # Events aren't greater than available individuals  
      n_SE = min(n_SE, S[t])  
      n_EI = min(n_EI, E[t])  
      n_IR = min(n_IR, I[t])  
@@ -63,7 +63,7 @@ for t in range(total_steps):
      I[t+1] = I[t] + n_EI - n_IR  
      R[t+1] = R[t] + n_IR  
    
-# Plot the results  
+# Plot results  
 fig, ax = plt.subplots(figsize=(9, 6))  
 ax.plot(time, S, label="Susceptible", color="#766CDB", linewidth=2)  
 ax.plot(time, E, label="Exposed", color="#DA847C", linewidth=2)  
