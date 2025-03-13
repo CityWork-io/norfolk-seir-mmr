@@ -70,7 +70,7 @@ ax.plot(time, E, label="Exposed", color="#DA847C", linewidth=2)
 ax.plot(time, I, label="Infectious", color="#7CD9A5", linewidth=2)  
 ax.plot(time, R, label="Recovered", color="#52515E", linewidth=2)  
    
-ax.set_title("Stochastic SEIR Model Simulation", pad=15, fontsize=20, fontweight="semibold", color="#222222")  
+ax.set_title("Norfolk Measles Model Simulation", pad=15, fontsize=20, fontweight="semibold", color="#222222")  
 ax.set_xlabel("Time (days)", labelpad=10, fontsize=16, fontweight="medium", color="#333333")  
 ax.set_ylabel("Number of Students", labelpad=10, fontsize=16, fontweight="medium", color="#333333")  
 ax.tick_params(axis="both", labelsize=14, colors="#555555")  
